@@ -33,25 +33,25 @@ export default function Home() {
   </div>
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as any]: '90%' }}
+    style={{ ['--percent' as unknown as string]: '90%' }}
     data-label="Python 90%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as any]: '65%' }}
+    style={{ ['--percent' as unknown as string]: '65%' }}
     data-label="Next.js 65%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as any]: '85%' }}
+    style={{ ['--percent' as unknown as string]: '85%' }}
     data-label="Streamlit 85%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as any]: '75%' }}
+    style={{ ['--percent' as unknown as string]: '75%' }}
     data-label="CSS 75%"
   ></div>
 </div> 
@@ -65,7 +65,7 @@ export default function Home() {
         <p>
           I'm a passionate web developer with strong expertise in Python and Object-Oriented Programming (OOP).
           I enjoy building modern, user-focused applications and am constantly expanding my skill set.
-          Currently, I’m diving deep into the world of Agentic AI to explore the future of intelligent, autonomous systems.
+          Currently, I'm diving deep into the world of Agentic AI to explore the future of intelligent, autonomous systems.
           I believe in learning by doing, and every project I take on is an opportunity to grow and create something impactful.
         </p>
       </div>
