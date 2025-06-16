@@ -371,3 +371,66 @@
     height: 28px;
   }
 }
+@media (max-width: 768px) {
+  .animatedGradient {
+    align-items: stretch;
+    padding: 2rem 1rem;
+  }
+
+  .sideSkills {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .skillsBox {
+    width: 100%;
+    text-align: center;
+  }
+
+  .skillCircleVertical {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skillCircleVertical::after {
+    font-size: 0.75rem;
+  }
+
+  .skillsHeading {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contactSection {
+    position: static;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .socialIcons a img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .projectCard {
+    padding: 1rem;
+  }
+
+  .projectTitle {
+    font-size: 1.1rem;
+  }
+
+  .projectDesc {
+    font-size: 0.85rem;
+  }
+}
+
