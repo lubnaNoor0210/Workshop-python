@@ -186,9 +186,10 @@
 }
 
 .sideSkills {
-  position: absolute;
+  margin-top: 2rem;
+/*   position: absolute;
   top: 5rem; 
-  left: 8rem;
+  left: 8rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -299,9 +300,10 @@
   }
 }
 .contactSection {
-  position: absolute;
+  margin-top: 2rem;
+/*   position: absolute;
   top: 12rem;
-  right: 12rem;
+  right: 12rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
