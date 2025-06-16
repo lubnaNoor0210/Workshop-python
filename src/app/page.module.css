@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  gap: 2rem;
 }
 
 @keyframes gradientMove {
@@ -28,18 +28,15 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   animation: slideIn 2s ease-out forwards;
   opacity: 0;
-  display: inline-block;
-  transition: transform 0.3s ease;
-  max-width: 90%;
   text-align: center;
+  max-width: 90%;
+  width: 100%;
 }
 
 @keyframes slideIn {
   0% { transform: translateY(-100px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
-
-.headerBox:hover { transform: scale(1.03); }
 
 .headerText {
   font-size: 2.2rem;
@@ -48,26 +45,29 @@
   margin: 0;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   letter-spacing: 1px;
-  text-align: center;
 }
 
-/* === ABOUT SECTION === */
-@keyframes slideInLeftToCenter {
-  0% { transform: translateX(-150px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+/* === LAYOUT GRID FOR MAIN SECTIONS === */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  align-items: start;
 }
 
+/* === ABOUT BOX === */
 .aboutBox {
-  padding: 1.5rem 2rem;
+  grid-column: 2 / 3;
   background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(161, 160, 160, 0.5));
   border-radius: 16px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   color: black;
-  max-width: 600px;
-  margin-top: 2.5rem;
-  align-self: center;
+  padding: 1.5rem;
   animation: slideInLeftToCenter 2s ease-out forwards;
   opacity: 0;
   font-size: 1.5rem;
@@ -75,15 +75,82 @@
   text-align: center;
 }
 
+@keyframes slideInLeftToCenter {
+  0% { transform: translateX(-150px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* === SKILLS SECTION LEFT === */
+.sideSkills {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* === CONTACT SECTION RIGHT === */
+.contactSection {
+  grid-column: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* === SHARED BOX STYLES === */
+.skillsBox, .contactBox {
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  text-align: center;
+}
+
+.skillsBox {
+  background: linear-gradient(to bottom right, rgba(236, 152, 239, 0.75), rgba(107, 74, 130, 0.55));
+  border: 1px solid rgba(224, 117, 176, 0.2);
+  animation: slideInSkills 1.5s ease-out forwards;
+}
+
+.contactBox {
+  background: linear-gradient(to bottom right, rgba(204, 255, 246, 0.75), rgba(120, 177, 255, 0.55));
+  border: 1px solid rgba(120, 200, 255, 0.2);
+  animation: slideInContact 1.5s ease-out forwards;
+}
+
+@keyframes slideInSkills {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInContact {
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
 /* === PROJECTS SECTION === */
+.projectsSection {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 3rem;
+}
+
+.projectSectionTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #0e0e0e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  width: 100%;
-  max-width: 1100px;
   padding: 0 1rem;
-  margin-top: 3rem;
 }
 
 .projectCard {
@@ -99,74 +166,43 @@
   transition: transform 0.3s ease;
 }
 
-.projectCard:hover { transform: scale(1.03); }
-
-.projectsSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
+.projectCard:hover {
+  transform: scale(1.03);
 }
 
-.projectTitle {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: black;
+/* === MOBILE STYLES === */
+@media (max-width: 768px) {
+  .mainLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sideSkills, .contactSection {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .skillCircleVertical {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skillsBox, .contactBox, .aboutBox, .headerBox {
+    max-width: 95%;
+  }
+
+  .headerText {
+    font-size: 1.5rem;
+  }
+
+  .aboutBox {
+    font-size: 1rem;
+  }
 }
 
-.projectDesc {
-  font-size: 0.95rem;
-  color: #070707;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.linkContainer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.projectLink {
-  text-decoration: none;
-  color: #0e584d;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-
-.projectLink:hover { border-color: #00ffd9; }
-
-.projectSectionTitle {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: #0e0e0e;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* === SKILLS SECTION === */
-.sideSkills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  z-index: 2;
-  margin-top: 2rem;
-}
-
-.skillsHeading {
-  color: black;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
+/* === SHARED ELEMENTS === */
 .skillCircleVertical {
   position: relative;
   width: 100px;
@@ -176,13 +212,7 @@
   border: 3px solid #00ffd9;
   background-color: #111;
   box-shadow: 0 0 10px rgba(0, 255, 217, 0.5);
-  animation: slideInSkills 1.8s ease-out forwards;
   opacity: 0;
-}
-
-@keyframes slideInSkills {
-  0% { transform: translateX(-100px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
 }
 
 .skillCircleVertical::before {
@@ -206,51 +236,12 @@
   text-shadow: 0 0 5px #00ffd9;
 }
 
-.skillsBox {
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(to bottom right, rgba(236, 152, 239, 0.75), rgba(107, 74, 130, 0.55));
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(224, 117, 176, 0.2);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  animation: slideInSkills 1.5s ease-out forwards;
-  opacity: 0;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* === CONTACT SECTION === */
-.contactSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 4rem;
-  z-index: 2;
-}
-
-.contactBox {
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(to bottom right, rgba(204, 255, 246, 0.75), rgba(120, 177, 255, 0.55));
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(120, 200, 255, 0.2);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  animation: slideInContact 1.5s ease-out forwards;
-  opacity: 0;
-  text-align: center;
-}
-
-@keyframes slideInContact {
-  0% { transform: translateX(100px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-.contactHeading {
-  color: black;
+.skillsHeading, .contactHeading {
   font-size: 1.4rem;
   font-weight: 700;
+  color: black;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .socialIcons {
@@ -270,55 +261,7 @@
   transform: scale(1.2);
 }
 
-/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-  .headerBox, .aboutBox, .skillsBox, .contactBox {
-    max-width: 95%;
-    padding: 1rem;
-  }
-
-  .headerText {
-    font-size: 1.5rem;
-  }
-
-  .aboutBox {
-    font-size: 1rem;
-  }
-
-  .projectGrid {
-    gap: 1rem;
-  }
-
-  .projectCard {
-    padding: 1rem;
-  }
-
-  .sideSkills {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .skillCircleVertical {
-    width: 80px;
-    height: 80px;
-  }
-
-  .skillCircleVertical::after {
-    font-size: 0.75rem;
-  }
-
-  .skillsHeading {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .contactSection {
-    flex-direction: column;
-    padding: 0 1rem;
-    margin-top: 2rem;
-  }
-
   .socialIcons a img {
     width: 28px;
     height: 28px;
