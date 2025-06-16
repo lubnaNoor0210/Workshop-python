@@ -1,24 +1,38 @@
-/* === BASE STYLES === */
 .animatedGradient {
   min-height: 100vh;
   background: linear-gradient(-45deg, #23d5ab, #f49c81, #6cc8e9, #e27fa5, #f5b2cc, #96decd);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  position: relative;
-  gap: 2rem;
+  padding-top: 4rem; 
 }
+
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* === HEADER SECTION === */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .headerBox {
   padding: 1rem 2.5rem;
   background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(200, 200, 200, 0.5));
@@ -28,16 +42,22 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   animation: slideIn 2s ease-out forwards;
   opacity: 0;
-  text-align: center;
+  display: inline-block;
+  transition: transform 0.3s ease;
   max-width: 90%;
-  width: 100%;
+  text-align: center;
 }
 
-@keyframes slideIn {
-  0% { transform: translateY(-100px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+@media (max-width: 768px) {
+  .headerBox {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+  }
 }
 
+.headerBox:hover {
+  transform: scale(1.03); 
+}
 .headerText {
   font-size: 2.2rem;
   font-weight: 700;
@@ -45,29 +65,36 @@
   margin: 0;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   letter-spacing: 1px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .headerText {
+    font-size: 1.5rem;
+  }
 }
 
-/* === LAYOUT GRID FOR MAIN SECTIONS === */
-.mainLayout {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 2rem;
-  align-items: start;
+@keyframes slideInLeftToCenter {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-/* === ABOUT BOX === */
 .aboutBox {
-  grid-column: 2 / 3;
-  background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(161, 160, 160, 0.5));
+  padding: 1.5rem 2rem;
+   background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(161, 160, 160, 0.5));
   border-radius: 16px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   color: black;
-  padding: 1.5rem;
+  max-width: 600px;
+  margin-top: 2.5rem;
+  align-self: center; 
   animation: slideInLeftToCenter 2s ease-out forwards;
   opacity: 0;
   font-size: 1.5rem;
@@ -75,82 +102,21 @@
   text-align: center;
 }
 
-@keyframes slideInLeftToCenter {
-  0% { transform: translateX(-150px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-/* === SKILLS SECTION LEFT === */
-.sideSkills {
-  grid-column: 1 / 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* === CONTACT SECTION RIGHT === */
-.contactSection {
-  grid-column: 3 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* === SHARED BOX STYLES === */
-.skillsBox, .contactBox {
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  text-align: center;
-}
-
-.skillsBox {
-  background: linear-gradient(to bottom right, rgba(236, 152, 239, 0.75), rgba(107, 74, 130, 0.55));
-  border: 1px solid rgba(224, 117, 176, 0.2);
-  animation: slideInSkills 1.5s ease-out forwards;
-}
-
-.contactBox {
-  background: linear-gradient(to bottom right, rgba(204, 255, 246, 0.75), rgba(120, 177, 255, 0.55));
-  border: 1px solid rgba(120, 200, 255, 0.2);
-  animation: slideInContact 1.5s ease-out forwards;
-}
-
-@keyframes slideInSkills {
-  0% { transform: translateX(-100px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInContact {
-  0% { transform: translateX(100px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-/* === PROJECTS SECTION === */
-.projectsSection {
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 3rem;
-}
-
-.projectSectionTitle {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: #0e0e0e;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+  .aboutBox {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 }
 
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
   padding: 0 1rem;
+  margin-top: 3rem;
 }
 
 .projectCard {
@@ -170,39 +136,74 @@
   transform: scale(1.03);
 }
 
-/* === MOBILE STYLES === */
-@media (max-width: 768px) {
-  .mainLayout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sideSkills, .contactSection {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .skillCircleVertical {
-    width: 80px;
-    height: 80px;
-  }
-
-  .skillsBox, .contactBox, .aboutBox, .headerBox {
-    max-width: 95%;
-  }
-
-  .headerText {
-    font-size: 1.5rem;
-  }
-
-  .aboutBox {
-    font-size: 1rem;
-  }
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-top: 4rem;
 }
 
-/* === SHARED ELEMENTS === */
+.projectTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: black;
+} 
+
+.projectDesc {
+  font-size: 0.95rem;
+  color: #070707;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.linkContainer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.projectLink {
+  text-decoration: none;
+  color: #0e584d;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.projectLink:hover {
+  border-color: #00ffd9;
+}
+.projectSectionTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #0e0e0e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sideSkills {
+  position: absolute;
+  top: 5rem; 
+  left: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.skillsHeading {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .skillCircleVertical {
   position: relative;
   width: 100px;
@@ -212,16 +213,34 @@
   border: 3px solid #00ffd9;
   background-color: #111;
   box-shadow: 0 0 10px rgba(0, 255, 217, 0.5);
+  animation: slideInSkills 1.8s ease-out forwards;
   opacity: 0;
 }
 
-.skillCircleVertical::before {
+@keyframes slideInSkills {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+ .skillCircleVertical::before {
   content: "";
   position: absolute;
   bottom: 0;
   width: 100%;
   height: var(--percent);
   background: linear-gradient(to top, #00ffd9, #0e584d);
+  /* animation: waveFill 2s infinite alternate; */
+} 
+ 
+@keyframes waveFill {
+  0% { transform: translateY(10%); }
+  100% { transform: translateY(-10%); }
 }
 
 .skillCircleVertical::after {
@@ -236,12 +255,88 @@
   text-shadow: 0 0 5px #00ffd9;
 }
 
-.skillsHeading, .contactHeading {
+.skillsBox {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to bottom right, rgba(236, 152, 239, 0.75), rgba(107, 74, 130, 0.55));
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(224, 117, 176, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: slideInSkills 1.5s ease-out forwards;
+  opacity: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .sideSkills {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .skillsBox {
+    width: 100%;
+    text-align: center;
+  }
+
+  .skillCircleVertical {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skillCircleVertical::after {
+    font-size: 0.75rem;
+  }
+
+  .skillsHeading {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+.contactSection {
+  position: absolute;
+  top: 12rem;
+  right: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  z-index: 2;
+}
+
+.contactBox {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to bottom right, rgba(204, 255, 246, 0.75), rgba(120, 177, 255, 0.55));
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(120, 200, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: slideInContact 1.5s ease-out forwards;
+  opacity: 0;
+  text-align: center;
+}
+
+@keyframes slideInContact {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.contactHeading {
+  color: black;
   font-size: 1.4rem;
   font-weight: 700;
-  color: black;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 .socialIcons {
@@ -261,7 +356,16 @@
   transform: scale(1.2);
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
+  .contactSection {
+    position: static;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
   .socialIcons a img {
     width: 28px;
     height: 28px;
