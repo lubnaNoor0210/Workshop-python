@@ -1,4 +1,5 @@
 import styles from './page.module.css';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -10,16 +11,16 @@ export default function Home() {
   </div>
   <div className={styles.socialIcons}>
     <a href="https://x.com/lubna123x?s=21" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter" />
+      <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter" width={32} height={32} />
     </a>
     <a href="https://www.linkedin.com/in/lubna-n-b4a9a7255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
+      <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width={32} height={32} />
     </a>
     <a href="mailto:lubnanoorulhaq@gmail.com" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" />
+      <Image src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" width={32} height={32} />
     </a>
     <a href="https://github.com/lubnaNoor0210" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+      <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width={32} height={32} />
     </a>
   </div>
 </div>
@@ -33,25 +34,25 @@ export default function Home() {
   </div>
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as unknown as string]: '90%' }}
+    style={{ ['--percent' as unknown as string]: '90%' } as React.CSSProperties}
     data-label="Python 90%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as unknown as string]: '65%' }}
+    style={{ ['--percent' as unknown as string]: '65%' } as React.CSSProperties}
     data-label="Next.js 65%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as unknown as string]: '85%' }}
+    style={{ ['--percent' as unknown as string]: '85%' } as React.CSSProperties}
     data-label="Streamlit 85%"
   ></div>
 
   <div
     className={styles.skillCircleVertical}
-    style={{ ['--percent' as unknown as string]: '75%' }}
+    style={{ ['--percent' as unknown as string]: '75%' } as React.CSSProperties}
     data-label="CSS 75%"
   ></div>
 </div> 
@@ -63,9 +64,9 @@ export default function Home() {
 
     <div className={styles.aboutBox}>
         <p>
-          I'm a passionate web developer with strong expertise in Python and Object-Oriented Programming (OOP).
+          I&apos;m a passionate web developer with strong expertise in Python and Object-Oriented Programming (OOP).
           I enjoy building modern, user-focused applications and am constantly expanding my skill set.
-          Currently, I'm diving deep into the world of Agentic AI to explore the future of intelligent, autonomous systems.
+          Currently, I&apos;m diving deep into the world of Agentic AI to explore the future of intelligent, autonomous systems.
           I believe in learning by doing, and every project I take on is an opportunity to grow and create something impactful.
         </p>
       </div>
