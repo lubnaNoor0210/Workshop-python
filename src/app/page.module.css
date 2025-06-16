@@ -1,38 +1,24 @@
+/* === BASE STYLES === */
 .animatedGradient {
   min-height: 100vh;
   background: linear-gradient(-45deg, #23d5ab, #f49c81, #6cc8e9, #e27fa5, #f5b2cc, #96decd);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 4rem; 
+  padding-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 
 @keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+/* === HEADER SECTION === */
 .headerBox {
   padding: 1rem 2.5rem;
   background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(200, 200, 200, 0.5));
@@ -48,16 +34,13 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .headerBox {
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-  }
+@keyframes slideIn {
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
-.headerBox:hover {
-  transform: scale(1.03); 
-}
+.headerBox:hover { transform: scale(1.03); }
+
 .headerText {
   font-size: 2.2rem;
   font-weight: 700;
@@ -67,26 +50,16 @@
   letter-spacing: 1px;
   text-align: center;
 }
-@media (max-width: 768px) {
-  .headerText {
-    font-size: 1.5rem;
-  }
-}
 
+/* === ABOUT SECTION === */
 @keyframes slideInLeftToCenter {
-  0% {
-    transform: translateX(-150px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(-150px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 .aboutBox {
   padding: 1.5rem 2rem;
-   background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(161, 160, 160, 0.5));
+  background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.7), rgba(161, 160, 160, 0.5));
   border-radius: 16px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -94,7 +67,7 @@
   color: black;
   max-width: 600px;
   margin-top: 2.5rem;
-  align-self: center; 
+  align-self: center;
   animation: slideInLeftToCenter 2s ease-out forwards;
   opacity: 0;
   font-size: 1.5rem;
@@ -102,13 +75,7 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .aboutBox {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-}
-
+/* === PROJECTS SECTION === */
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -132,14 +99,12 @@
   transition: transform 0.3s ease;
 }
 
-.projectCard:hover {
-  transform: scale(1.03);
-}
+.projectCard:hover { transform: scale(1.03); }
 
 .projectsSection {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   margin-top: 4rem;
 }
 
@@ -148,7 +113,7 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: black;
-} 
+}
 
 .projectDesc {
   font-size: 0.95rem;
@@ -173,9 +138,8 @@
   transition: border-color 0.2s;
 }
 
-.projectLink:hover {
-  border-color: #00ffd9;
-}
+.projectLink:hover { border-color: #00ffd9; }
+
 .projectSectionTitle {
   text-align: center;
   font-size: 2.2rem;
@@ -185,16 +149,14 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* === SKILLS SECTION === */
 .sideSkills {
-  margin-top: 2rem;
-/*   position: absolute;
-  top: 5rem; 
-  left: 8rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   z-index: 2;
+  margin-top: 2rem;
 }
 
 .skillsHeading {
@@ -219,29 +181,17 @@
 }
 
 @keyframes slideInSkills {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
- .skillCircleVertical::before {
+.skillCircleVertical::before {
   content: "";
   position: absolute;
   bottom: 0;
   width: 100%;
   height: var(--percent);
   background: linear-gradient(to top, #00ffd9, #0e584d);
-  /* animation: waveFill 2s infinite alternate; */
-} 
- 
-@keyframes waveFill {
-  0% { transform: translateY(10%); }
-  100% { transform: translateY(-10%); }
 }
 
 .skillCircleVertical::after {
@@ -269,45 +219,13 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .sideSkills {
-    position: static;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .skillsBox {
-    width: 100%;
-    text-align: center;
-  }
-
-  .skillCircleVertical {
-    width: 80px;
-    height: 80px;
-  }
-
-  .skillCircleVertical::after {
-    font-size: 0.75rem;
-  }
-
-  .skillsHeading {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-}
+/* === CONTACT SECTION === */
 .contactSection {
-  margin-top: 2rem;
-/*   position: absolute;
-  top: 12rem;
-  right: 12rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+  margin-top: 4rem;
   z-index: 2;
 }
 
@@ -324,14 +242,8 @@
 }
 
 @keyframes slideInContact {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 .contactHeading {
@@ -358,41 +270,33 @@
   transform: scale(1.2);
 }
 
-/* Mobile Responsive */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-  .contactSection {
-    position: static;
-    margin-top: 2rem;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1rem;
+  .headerBox, .aboutBox, .skillsBox, .contactBox {
+    max-width: 95%;
+    padding: 1rem;
   }
 
-  .socialIcons a img {
-    width: 28px;
-    height: 28px;
+  .headerText {
+    font-size: 1.5rem;
   }
-}
-@media (max-width: 768px) {
-  .animatedGradient {
-    align-items: stretch;
-    padding: 2rem 1rem;
+
+  .aboutBox {
+    font-size: 1rem;
+  }
+
+  .projectGrid {
+    gap: 1rem;
+  }
+
+  .projectCard {
+    padding: 1rem;
   }
 
   .sideSkills {
-    position: static;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .skillsBox {
-    width: 100%;
-    text-align: center;
+    flex-wrap: wrap;
   }
 
   .skillCircleVertical {
@@ -410,29 +314,13 @@
   }
 
   .contactSection {
-    position: static;
-    margin-top: 0;
-    margin-bottom: 2rem;
     flex-direction: column;
-    align-items: center;
     padding: 0 1rem;
+    margin-top: 2rem;
   }
 
   .socialIcons a img {
     width: 28px;
     height: 28px;
   }
-
-  .projectCard {
-    padding: 1rem;
-  }
-
-  .projectTitle {
-    font-size: 1.1rem;
-  }
-
-  .projectDesc {
-    font-size: 0.85rem;
-  }
 }
-
